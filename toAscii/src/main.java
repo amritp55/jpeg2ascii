@@ -11,7 +11,6 @@ public class main {
 	static ArrayList<String> pixel = new ArrayList<String>();
 	static String ascii = " .,:;irXAs253hMHGS#9B&@";
 	 
-
 	public static void main(String[] args) {
 		prepAscii(ascii);
 		System.out.println(pixel);
@@ -32,18 +31,9 @@ public class main {
 					
 					Color color = new Color (rgb);
 					greyscale = toGreyscale(color.getRed(),color.getGreen(),color.getBlue());
-					//System.out.println(greyscale);
-
-
 					out.write(greyscaleToString(greyscale));
-					
-					
-
-				
 				}
 			}
-		
-		
 		}catch (IOException e){
 			e.printStackTrace();
 		}
@@ -55,6 +45,7 @@ public class main {
 		return tot/3.0;
 		
 	}
+	
 	public static String greyscaleToString(double grey){
 		int spot;
 		spot = (int) Math.round(grey/11.59);
@@ -63,13 +54,11 @@ public class main {
 		}
 
 		return pixel.get(21-spot);
-
 	}
+	
 	public static void prepAscii(String a){
 		for (int i = 1; i <a.length();i++){
 			pixel.add(a.substring(i-1, i));
 		}
 	}
-	
-
 }
