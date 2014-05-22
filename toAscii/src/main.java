@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 
 public class main extends JFrame {
   private JTextField filename = new JTextField(), dir = new JTextField();
-  private JButton open = new JButton("..."), save = new JButton("Ok");
+  private JButton open = new JButton("..."), okay = new JButton("Ok");
   static ArrayList<String> pixel = new ArrayList<String>();
   static String ascii = " .,:;irXAs253hMHGS#9B&@";
 
@@ -27,8 +27,8 @@ public class main extends JFrame {
     JPanel p = new JPanel();
     open.addActionListener(new OpenL());
     p.add(open);
-    save.addActionListener(new SaveL());
-    p.add(save);
+    okay.addActionListener(new OkayL());
+    p.add(okay);
     Container cp = getContentPane();
     cp.add(p, BorderLayout.SOUTH);
     dir.setEditable(false);
@@ -56,7 +56,7 @@ public class main extends JFrame {
     }
   }
 
-  class SaveL implements ActionListener {
+  class OkayL implements ActionListener {
     public void actionPerformed(ActionEvent e) {
     	try{
     		File file1 = new File(dir.getText());
@@ -78,6 +78,7 @@ public class main extends JFrame {
     				out.write(greyscaleToString(greyscale));
     			}
     		}
+    		out.close();
     	}catch (IOException e1){
     		e1.printStackTrace();
     	}
